@@ -1,0 +1,13 @@
+---
+import { getPostById } from "../../api";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const { id = "1" } = Astro.params;
+
+const post = await getPostById(id);
+---
+
+<BaseLayout>
+  <h1>{post.title}</h1>
+  <p>{post.text}</p>
+</BaseLayout>
