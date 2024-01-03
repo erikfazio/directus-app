@@ -1,0 +1,8 @@
+---
+import { getAboutPage } from "./api";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const aboutPage = await getAboutPage();
+---
+
+<BaseLayout><h1>Hello world!</h1><p>{aboutPage.text}</p></BaseLayout>

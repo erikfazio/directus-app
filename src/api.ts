@@ -19,3 +19,15 @@ export async function getTestimonialsById(id: string) {
 export async function getPostById(id: string) {
   return await client.request(readItem("posts", id));
 }
+
+export async function getIntro() {
+  return await client.request(readItem("intro", 1));
+}
+
+export async function getHeroImages() {
+  const images = await client.request(readItems("hero_images"));
+  return images.map((image) => ({
+    ...image,
+    link: `https://erikfazio.directus.app/assets/${image.link}`,
+  }));
+}

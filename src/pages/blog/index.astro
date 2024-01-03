@@ -6,11 +6,10 @@ const posts = await getPosts();
 ---
 
 <BaseLayout>
-  <h1>Blog</h1>
-  <ul>
+  <ul class="flex flex-col mt-16">
     {
       posts.map((post) => (
-        <li>
+        <li class="border-b py-8">
           <a href={`/blog/${post.id}`}>{post.title}</a>
         </li>
       ))

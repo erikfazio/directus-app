@@ -1,0 +1,7 @@
+---
+import { getIntro } from "../../api";
+
+const { text } = await getIntro();
+---
+
+<section class="py-16">{text}</section>

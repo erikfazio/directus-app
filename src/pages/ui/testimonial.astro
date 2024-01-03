@@ -1,5 +1,7 @@
 ---
-
+const { text, author } = Astro.props;
 ---
 
-<div></div>
+<div class="border border-gray-300 p-4">
+  <p>{text}</p><small>{author}</small>
+</div>

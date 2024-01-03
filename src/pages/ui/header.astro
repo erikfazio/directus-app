@@ -1,12 +1,28 @@
 ---
+const currentPath = Astro.url.pathname;
 
+const pages = [
+  { label: "Home", value: "/" },
+  { label: "About", value: "/about" },
+  { label: "Blog", value: "/blog" },
+];
 ---
 
-<header>
+<header class="p-8 border-b">
   <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/blog">Blog</a></li>
+    <ul class="flex justify-center gap-8">
+      {
+        pages.map((page) => (
+          <li>
+            <a
+              class={page.value === currentPath ? "font-bold" : ""}
+              href={page.value}
+            >
+              {page.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </header>

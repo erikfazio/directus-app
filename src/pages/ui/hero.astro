@@ -1,0 +1,9 @@
+---
+import { getHeroImages } from "../../api";
+
+const images = await getHeroImages();
+---
+
+<div>
+  {images.map((image) => <img src={image.link} />)}
+</div>

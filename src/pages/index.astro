@@ -1,11 +1,25 @@
 ---
-import { getPosts } from "../api";
+import { getPosts, getTestimonials } from "../api";
 import BaseLayout from "./layouts/BaseLayout.astro";
+import Hero from "./ui/hero.astro";
+import Intro from "./ui/intro.astro";
+import Testimonial from "./ui/testimonial.astro";
 
 const posts = await getPosts();
-console.log(posts);
+const testimonials = await getTestimonials();
 ---
 
 <BaseLayout>
-  <h1>Erik Fazio</h1>
+  <Hero />
+  <Intro />
+  <section>
+    <h2>Testimonials</h2>
+    <div class="flex flex-col lg:flex-row gap-4">
+      {
+        testimonials.map(({ text, author }) => (
+          <Testimonial text={text} author={author} />
+        ))
+      }
+    </div>
+  </section>
 </BaseLayout>
